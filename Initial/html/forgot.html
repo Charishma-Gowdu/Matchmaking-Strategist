@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot</title>
+    <style>
+        body {
+            background-color: mintcream;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            height: 80vh;
+            background-image: URL('../photos/new17.jpeg');
+            background-size: cover;
+        }
+        .forgot-box{
+            width:30%;
+            align-items: center;
+            display: flex ;
+            flex-direction: column;
+            background-color: none;
+            border-radius: 10px;
+            padding:5px;
+            text-align: center;
+            font-size: 25px;
+            position:relative;
+            margin-bottom: 50px;
+            left:-25%;
+            top:-15%;
+        }
+        label, input,button, a{
+            width: 50%;
+            height:30px;
+            margin-bottom: 10px;
+            border-radius: 30px;
+        }
+        .forgot-box input[type="submit"]:hover{
+            background-color: lightseagreen;
+        }
+        .forgot-box input[type="submit"],.forgot-box button{
+            cursor: pointer;
+            background-color: rgb(15, 231, 216);
+           
+        }
+        .secret_answer{
+            display: none;
+        }
+        h3{
+            position: relative;
+            right:0%;
+            bottom:20%;
+        }
+        a{
+            position: relative;
+            right: 5%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="forgot-box">
+        
+        <i><h3>Forgot Password</h3>
+        <form id="forgot">
+        <b><label for="user">Username</label><br>
+        <input type="text" id="user"><br>
+        <div id="secretQuestion"></div>
+        <div id="secret_answer" class="secret_answer">
+            <label for="answer">Answer for the secret question</label><br>
+            <input type="text" id="answer"><br>
+        </div>
+        <button id="submit">Submit</button><br>
+
+        <a href="../html/login.html">Back to Login</a></i></b>
+    </form>
+        <script>
+            
+            document.getElementById('submit').addEventListener('click',function(event){
+                event.preventDefault();
+
+                const username=document.getElementById('user').value;
+                const answer=document.getElementById('answer').value;
+
+                fetch('login.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        const user=data.find(user => user.username === username);//searches for the user with the given username using the find() method.If it is found then it will be stored in "user" variable
+                        if(user){
+                            const secretQuestion=document.getElementById('secretQuestion');
+                            secretQuestion.textContent=`Secret Question: ${user.secret_question}`;
+
+                            const secretAnswer=document.getElementById('secret_answer');
+                            secretAnswer.classList.remove('secret_answer');
+
+                            if(answer===user.secret_answer){
+                                const password=document.createElement('div');
+                                password.textContent=`Password:${user.password}`;
+                               secretQuestion.appendChild(password);
+                            }
+                           
+                        }else{
+                                alert("Looks like the user's gone ghost hunting. Couldn't find them anywhere!");
+                            }
+                    })
+                    .catch(error => console.error('Error fetching data:',error));
+            });
+            
+        </script>
+        </div>
+        
+</body>
+</html>

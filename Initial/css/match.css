@@ -1,0 +1,62 @@
+body{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: URL('../photos/new12.jpg');
+    background-size: cover;
+    height:100vh;
+    margin:0;
+}
+#RightMatch{
+    position: relative;
+    left: 0%;
+}
+h1{
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    left: 0%;
+}
+img{
+    border-radius: 50px;;
+}
+@keyframes bounceIn {
+    0% {
+        transform: scale(1);
+        color: rgb(236, 73, 73);
+    }
+    25%{
+        transform: scale(1.1);
+        color: rgb(236, 48, 48);
+    }
+    50% {
+        transform: scale(1.2);
+        color: red;
+    }
+    75%{
+        transform: scale(1.1);
+        color: rgb(236, 48, 48);
+    }
+    100% {
+        transform: scale(1);
+        color: rgb(236, 73,73);
+    }
+}
+.bounce-in {
+    animation: bounceIn 3s infinite ease;
+    padding-bottom: 10px;
+}
+button{
+    background-color: rgb(246, 99, 121);
+    position: relative;
+    left: 0%;
+    width:100px;
+    height:40px;
+    border-radius: 20px;
+}
+button :hover{
+    background-color: rgb(140, 7, 7);
+    cursor:pointer;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Match</title>
+    <link rel="stylesheet" href="../css/match.css">
+</head>
+<body>
+    <i><h1 class="bounce-in">Meet your Soulmate</h1></i>
+    <div id="RightMatch"></div>
+
+    <script>
+        function getQueryParameters() {
+            const parameters = {};
+            const queryString = window.location.search.substring(1);
+            const queryParameters = queryString.split('&');
+            queryParameters.forEach(parameter => {
+                const parts = parameter.split('=');
+                const key = decodeURIComponent(parts[0]);
+                const value = decodeURIComponent(parts[1]);
+                parameters[key] = value;
+            });
+            return parameters;
+        }
+        function modifiedName(name){
+            const lowercaseName=name.toLowerCase();
+            const modifiedName = lowercaseName.replace(/ /g,"_");
+            return modifiedName;
+        }
+        
+        const queryParameters = getQueryParameters();
+        const newName=modifiedName(queryParameters.name);
+        
+        
+        const RightMatchDiv = document.getElementById('RightMatch');
+        if (queryParameters.name && queryParameters.commonInterests && queryParameters.commonHobbies) {
+            
+            
+            RightMatchDiv.innerHTML = `
+                <img src="../photos/${newName}.png" width=300>
+                <i><b><h3>Name: ${queryParameters.name}</h3>
+                <h3>Shared Interests: ${queryParameters.commonInterests}</h3>
+                <h3>Shared Hobbies: ${queryParameters.commonHobbies}</h3>
+                <h3>Match Percentage: ${queryParameters.percent}</b></h3>
+                </i>
+                
+            `;
+        } else {
+            RightMatchDiv.textContent = 'No match data found!';
+        }
+    
+        
+    </script>
+    
+    <button onclick="sendEmail()">Send Email</button>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script src="../js/dating.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,46 @@
+body {
+    background-image: URL('../photos/new13.jpg');
+   background-color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 25px;
+    margin: 0;
+    background-size: cover;
+    color:rgb(137, 5, 5);
+}
+.interface-box{
+    width:50%;
+    background-color: none;
+    border-radius: 10px;
+    padding:25px;
+    font-size:20px;
+}
+label, input[type="text"],input[type="number"],input[type="email"],input[type="radio"],input[type="checkbox"],textarea{
+    width: 50%;
+    height:30px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    padding:5px;
+}
+.interface-box input[type="submit"],button{
+    cursor: pointer;
+    background-color:rgb(236, 110, 110) ;
+    width:50%;
+    height:30px;
+    border-radius: 15px;
+    padding: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+    margin:10px auto;
+}
+.interface-box input[type="checkbox"],input[type="radio"]{
+    width:15px;
+    height:15px;
+} 
+.interface-box input[type="submit"]:hover{
+    background-color: rgb(137, 5, 5);
+}
+.interface-box button:hover{
+    background-color: rgb(137, 5, 5);
+}

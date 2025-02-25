@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Interface</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <script src="../js/dating.js"></script>
+    <div class="interface-box">
+        <i>
+        <h1>Your soulmate is just a few questions away. </h1>
+        <h1>Begin your journey now!</h1>
+        <b><label for="rollnumber">IITB Roll Number:</label></b><br>
+        <input type="number" id="rollnumber" placeholder="Enter your Roll Number"><br>
+
+        <b><label for="name">Name:</label></b><br>
+        <input type="text" id="name" placeholder="Enter your name"><br>
+
+        <b><label for="year">Year of Study:</label></b><br>
+        <input type="number" id="year" placeholder="Enter your year of study">
+
+        <h3>Gender:</h3>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label><br><br>
+
+        <b><label for="email">Email:</label></b><br>
+        <input type="text" id="email" placeholder="Enter your Email">
+
+        <h3>Interests:</h3>
+        <input type="checkbox" id="traveling" name="interests" value="Traveling">
+        <label for="traveling">Traveling</label> 
+        
+        <input type="checkbox" id="sports" name="interests" value="Sports">
+        <label for="sports">Sports</label>
+
+        <input type="checkbox" id="movies" name="interests" value="Movies">
+        <label for="movies">Movies</label>
+
+        <input type="checkbox" id="music" name="interests" value="Music">
+        <label for="music">Music</label>
+
+        <input type="checkbox" id="literature" name="interests" value="Literature">
+        <label for="literature">Literature</label>
+
+        <input type="checkbox" id="technology" name="interests" value="Technology">
+        <label for="technology">Technology</label>
+
+        <input type="checkbox" id="fashion" name="interests" value="Fashion">
+        <label for="fashion">Fashion</label>
+
+        <input type="checkbox" id="art" name="interests" value="Art">
+        <label for="art">Art</label><br>
+    
+
+        <h3>Hobbies:</h3><br>
+        <input type="checkbox" id="reading" name="hobbies" value="Reading">
+        <label for="reading">Reading</label>
+
+        <input type="checkbox" id="cooking" name="hobbies" value="Cooking">
+        <label for="cooking">Cooking</label>
+
+        <input type="checkbox" id="coding" name="hobbies" value="Coding">
+        <label for="coding">Coding</label>
+
+        <input type="checkbox" id="gardening" name="hobbies" value="Gardening">
+        <label for="gardening">Gardening</label>
+
+        <input type="checkbox" id="painting" name="hobbies" value="Painting">
+        <label for="painting">Painting</label>
+
+        <input type="checkbox" id="watching" name="hobbies" value="Watching YouTube/Instagram">
+        <label for="watching">Watching YouTube/Instagram</label>
+
+        <input type="checkbox" id="playing" name="hobbies" value="Playing musical instruments">
+        <label for="playing">Playing musical instruments</label>
+
+        <input type="checkbox" id="photography" name="hobbies" value="Photography">
+        <label for="photography">Photography</label>
+        <br><br>
+
+        <button onclick="RightMatch()">Find Match</button>
+        <button onclick="Scroll()">Scroll Through Profiles</button>
+        <button onclick="logout()">Logout</button>
+       
+        </i>
+
+  <script>
+    function Scroll() {
+      location.href = "../html/scroll_or_swipe.html"; 
+    }
+    function logout(){
+        window.location.href="../html/login.html";
+    }
+    </script>
+   
+    </div>
+    
+</body>
+</html>
