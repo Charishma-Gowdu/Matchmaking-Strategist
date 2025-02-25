@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            background-color: white;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+           background-image: url('../photos/new9.jpg');
+           background-size: cover;
+           background-position: center;
+        }
+        .login-box{
+            width:50%;
+            background-color: none;
+           
+            padding:25px;
+            font-size: 30px; 
+            margin: 30px;
+            border-radius: 25px;
+            color:lightcyan
+        }
+        label, input,button{
+            width: 50%;
+            height:40px;
+            margin-bottom: 15px;
+            border-radius: 25px;
+        }
+        .login-box input[type="submit"]:hover,button:hover{
+          
+          background-color: brown;
+        }
+        .login-box input[type="submit"],button{
+            cursor: pointer;
+            
+            background-color: rgb(250, 75, 75);
+            color:lightcyan;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+    <script src="../js/login.js"></script>
+</head>
+<body>
+    <i>
+    
+    <div class="login-box">
+        <h2>Ready to Fall in Love?Let us help in finding it!!</h2>
+        <h3>Login</h3>
+    
+            <b><label for="user">Username:</label><br></b>
+            <input type="text" id="user" placeholder="Username"><br>
+            <b><label for="password">Password:</label><br></b>
+            <input type="password" id="password" placeholder="Password"><br>
+           
+            <button id="login">Login</button>
+            <div id="error" class="error">  </div>
+    
+            <button onclick="forgot()">Forgot Password</button></div>
+    
+                <script>
+                    
+                   
+                     function login() {
+                        const username = document.getElementById("user").value;
+                        const answer = document.getElementById("password").value;
+    
+                        fetch('../json/login.json')
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log('Fetched Data:', data); 
+                            const user = data.find(user => user.username === username);
+                            console.log('Found User:', user); 
+
+                            if (user) {
+                                if (answer === user.password) {
+                                    window.location.href = "../html/animation.html";
+                                }else{
+                                    document.getElementById("error").innerText = "Incorrect Password";
+                                }
+                            }else{
+                                    document.getElementById("error").innerText = "User not found";
+                                }
+        })
+        .catch(error => {
+            console.error('Error fetching JSON:', error);
+        });
+}
+                document.getElementById('login').addEventListener('click',function(event){
+                        event.preventDefault();
+                        login();
+});
+
+                    function forgot(){
+                        window.location.href="../html/forgot.html";
+                    }
+                </script>
+                </i>
+          
+</body>
+</html> 
